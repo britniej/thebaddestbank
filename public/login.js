@@ -28,15 +28,20 @@ function LoginMsg(props){
 function LoginForm(props){
   const [email, setEmail]       = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const ctx = React.useContext(UserContext);
 
   function handle(){
     fetch(`/account/login/${email}/${password}`)
     .then(response => response.text())
     .then(text => {
+      console.log(text);
         try {
             const data = JSON.parse(text);
             props.setStatus('');
             props.setShow(false);
+            ctx.users[0].push(data);
+            setIsLoggedIn(true);
             console.log('JSON:', data);
         } catch(err) {
             props.setStatus(text)
@@ -45,6 +50,8 @@ function LoginForm(props){
     });
   }
 
+  console.log(ctx);
+  console.log(ctx.users[0]);
 
   return (<>
 

@@ -1,23 +1,9 @@
 
-
+//const ctx = React.useContext(data);
 
 function NavBar(){
-//Breaks and makes NavBar uncalled-> const MongoClient = require('mongodb').MongoClient;
-//let db            = null;
- 
-// connect to mongo
-//MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
-  //  console.log("Connected successfully to db server");
-
-    // connect to myproject database
-    //db = client.db('myproject');
-//});
-
-
- /*function findName({name:brit}) {
-    const name = db.users.find([0]);
-    return name;
- }*/
+const ctx = React.useContext(UserContext);
+console.log(ctx);
 
   return(
 
@@ -51,7 +37,7 @@ function NavBar(){
           </li>          
         </ul>
       </div>
-      Welcome, name!
+      Welcome, !
     </nav>
   );
 

@@ -31,6 +31,8 @@ function DepositMsg(props){
 function DepositForm(props){
   const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState('');
+  const ctx = React.useContext(UserContext);
+  console.log(ctx);
 
   function handle(){
     fetch(`/account/update/${email}/${amount}`)

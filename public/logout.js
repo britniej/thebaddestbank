@@ -35,6 +35,7 @@ function Logout(){
               props.setStatus('');
               props.setShow(false);
               console.log('JSON:', data);
+              setIsLogged
           } catch(err) {
               props.setStatus(text)
               console.log('err:', text);
