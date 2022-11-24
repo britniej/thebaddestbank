@@ -1,20 +1,24 @@
-function Deposit(){
+function Deposit(props){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');  
 
+    
   return (
     <Card
       bgcolor="info"
       header="Deposit"
       status={status}
       body={show ? 
-        <DepositForm setShow={setShow} setStatus={setStatus}/> :
+        <DepositForm 
+        setShow={setShow} setStatus={setStatus}/> :
         <DepositMsg setShow={setShow} setStatus={setStatus}/>}
     />
   )
 }
 
 function DepositMsg(props){
+ 
+
   return (<>
     <h5>Successful Deposit!</h5>
     <button type="submit" 
@@ -33,6 +37,8 @@ function DepositForm(props){
   const [amount, setAmount] = React.useState('');
   const ctx = React.useContext(UserContext);
   console.log(ctx);
+  const user = ctx.users[0];
+  const userEmail = user.email;
 
   function handle(){
     fetch(`/account/update/${email}/${amount}`)
@@ -50,13 +56,12 @@ function DepositForm(props){
     });
   }
 
-  return(<>
-
+  return( <>
     Email<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter email" 
-      value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
+      placeholder={userEmail}
+      value={userEmail} onChange={e => setEmail(e.currentTarget.value)}/><br/>
       
     Amount<br/>
     <input type="number" 

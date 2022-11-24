@@ -14,6 +14,7 @@ function Login(props) {
             setShow={setShow}
             setStatus={setStatus}
             setIsLoggedIn={props.setIsLoggedIn}
+            setEmail={props.setEmail}
           />
         ) : (
           <LoginMsg user={props.user} setShow={setShow} setStatus={setStatus} />
@@ -24,7 +25,6 @@ function Login(props) {
 }
 
 function LoginMsg(props) {
-  const ctx = React.useContext(UserContext);
 
   return (
     <>
@@ -54,12 +54,15 @@ function LoginForm(props) {
           props.setStatus('');
           props.setShow(false);
           ctx.users[0] = data;
+          ctx.users.push(data);
+
           props.setUser(data);
           props.setIsLoggedIn(true);
         } catch (err) {
           props.setStatus(text);
           console.log('err:', err);
         }
+        console.log(ctx);
       });
   }
 
@@ -91,5 +94,3 @@ function LoginForm(props) {
     </>
   );
 }
-
-//export default function LoginForm({email})

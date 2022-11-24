@@ -31,6 +31,10 @@ function WithdrawMsg(props){
 function WithdrawForm(props){
   const [email, setEmail]   = React.useState('');
   const [amount, setAmount] = React.useState('');
+  const ctx = React.useContext(UserContext);
+  console.log(ctx);
+  const user = ctx.users[0];
+  const userEmail = user.email;
 
   function handle(){
     fetch(`/account/update/${email}/-${amount}`)
@@ -55,7 +59,7 @@ function WithdrawForm(props){
     <input type="input" 
       className="form-control" 
       placeholder="Enter email" 
-      value={email} 
+      value={userEmail} 
       onChange={e => setEmail(e.currentTarget.value)}/><br/>
 
     Amount<br/>

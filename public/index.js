@@ -1,6 +1,7 @@
 function Spa() {
   const [user, setUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [email, setEmail]   = React.useState('');
 
   return (
     <HashRouter>
@@ -9,10 +10,10 @@ function Spa() {
           value={{
             users: [
               {
-                name: 'abel',
-                email: 'abel@mit.edu',
-                password: 'secret',
-                balance: 100,
+                name: 'brit',
+                email: 'britniej',
+                password: 'lila143',
+                balance: 0,
               },
             ],
           }}
@@ -30,11 +31,17 @@ function Spa() {
                 user={user}
                 setUser={setUser}
                 setIsLoggedIn={setIsLoggedIn}
+                email={email}
+                setEmail={setEmail}
               />
             </Route>
             <Route path='/logout/' component={Logout} />
-            <Route path='/deposit/' component={Deposit} />
             <Route path='/withdraw/' component={Withdraw} />
+            <Route path='/deposit/'> 
+              <Deposit
+                 email={email} 
+                 setEmail={setEmail}
+                 /> </Route>
             {/* <Route path="/transactions/" component={Transactions} /> */}
             <Route path='/balance/' component={Balance} />
             <Route path='/alldata/' component={AllData} />
