@@ -3,7 +3,7 @@ function Account (){
     return (
         <Card
           bgcolor="info"
-          header="Login"
+          header="Account Information"
           status={status}
           body={show ? 
             <LoginForm setShow={setShow} setStatus={setStatus}/> :
