@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url         = 'mongodb://localhost:27017';
+const url         = 'mongodb+srv://bj:bj123@baddestbank.9t5ygso.mongodb.net/?retryWrites=true&w=majority';
 let db            = null;
  
 // connect to mongo
