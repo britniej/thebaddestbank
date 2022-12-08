@@ -37,9 +37,9 @@ function BalanceForm(props){
   console.log(ctx);
   const user = ctx.users[0];
   const userEmail = user.email;
-  
+
   function handle(){
-    fetch(`/account/findOne/${userEmail}`)
+    fetch(`/account/findOne/${email}`)
     .then(response => response.text())
     .then(text => {
         try {
@@ -60,9 +60,9 @@ function BalanceForm(props){
     Email<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="userEmail" 
-      value={userEmail} 
-      //onChange={e => setEmail(e.currentTarget.value)}
+      placeholder={userEmail}
+      value={email} 
+      onChange={e => setEmail(e.currentTarget.value)}
       
       /><br/>
 

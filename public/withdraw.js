@@ -37,7 +37,7 @@ function WithdrawForm(props){
   const userEmail = user.email;
 
   function handle(){
-    fetch(`/account/update/${userEmail}/-${amount}`)
+    fetch(`/account/update/${email}/-${amount}`)
     .then(response => response.text())
     .then(text => {
         try {
@@ -58,9 +58,9 @@ function WithdrawForm(props){
     Email<br/>
     <input type="input" 
       className="form-control" 
-      placeholder="Enter email" 
-      value={userEmail} 
-      //onChange={e => setEmail(e.currentTarget.value)}
+      placeholder={userEmail}
+      value={email} 
+      onChange={e => setEmail(e.currentTarget.value)}
       /><br/>
 
     Amount<br/>

@@ -41,7 +41,7 @@ function DepositForm(props){
   const userEmail = user.email;
 
   function handle(){
-    fetch(`/account/update/${userEmail}/${amount}`)
+    fetch(`/account/update/${email}/${amount}`)
     .then(response => response.text())
     .then(text => {
         try {
@@ -61,8 +61,8 @@ function DepositForm(props){
     <input type="input" 
       className="form-control" 
       placeholder={userEmail}
-      value={userEmail} 
-      //onChange={e => setEmail(e.currentTarget.value)}
+      value={email} 
+      onChange={e => setEmail(e.currentTarget.value)}
       /><br/>
       
     Amount<br/>
