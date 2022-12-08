@@ -1,7 +1,6 @@
 function CreateAccount(){
   const [show, setShow]     = React.useState(true);
   const [status, setStatus] = React.useState('');
-  const [username, setUsername] = React.useState('');
 
   return (
     <Card
@@ -30,10 +29,8 @@ function CreateForm(props){
   const [password, setPassword] = React.useState('');
 
   function handle(){
-    const ctx = React.useContext(UserContext);
     console.log(name,email,password);
     const url = `/account/create/${name}/${email}/${password}`;
-
     (async () => {
         var res  = await fetch(url);
         var data = await res.json();    
