@@ -37,11 +37,7 @@ function Spa() {
             </Route>
             <Route path='/logout/' component={Logout} />
             <Route path='/withdraw/' component={Withdraw} />
-            <Route path='/deposit/'> 
-              <Deposit
-                 email={email} 
-                 setEmail={setEmail}
-                 /> </Route>
+            <Route path='/deposit/' component={Deposit} />
             {/* <Route path="/transactions/" component={Transactions} /> */}
             <Route path='/balance/' component={Balance} />
             <Route path='/alldata/' component={AllData} />

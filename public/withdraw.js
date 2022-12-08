@@ -24,7 +24,7 @@ function WithdrawMsg(props){
         props.setStatus('');
       }}>
         Withdraw again
-    </button>
+    </button><br/><br/>
   </>);
 }
 
@@ -37,7 +37,7 @@ function WithdrawForm(props){
   const userEmail = user.email;
 
   function handle(){
-    fetch(`/account/update/${email}/-${amount}`)
+    fetch(`/account/update/${userEmail}/-${amount}`)
     .then(response => response.text())
     .then(text => {
         try {
@@ -60,7 +60,8 @@ function WithdrawForm(props){
       className="form-control" 
       placeholder="Enter email" 
       value={userEmail} 
-      onChange={e => setEmail(e.currentTarget.value)}/><br/>
+      //onChange={e => setEmail(e.currentTarget.value)}
+      /><br/>
 
     Amount<br/>
     <input type="number" 
