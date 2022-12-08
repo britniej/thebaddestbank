@@ -33,13 +33,18 @@ function BalanceForm(props){
   const [email, setEmail]   = React.useState('');
   const [balance, setBalance] = React.useState('');  
 
+  const ctx = React.useContext(UserContext);
+  console.log(ctx);
+  const user = ctx.users[0];
+  const userEmail = user.email;
+
   function handle(){
     fetch(`/account/findOne/${email}`)
     .then(response => response.text())
     .then(text => {
         try {
             const data = JSON.parse(text);
-            props.setStatus(text);
+            props.setStatus(JSON.stringify(data.value.name) + `, ` + JSON.stringify(data.value.balance) + ` is your most up to date balance given any recent debits or credits.`);
             props.setShow(false);
             setBalance(user.balance);
             console.log('JSON:', data);
@@ -56,7 +61,7 @@ function BalanceForm(props){
     <input type="input" 
       className="form-control" 
       placeholder="Enter email" 
-      value={email} 
+      value={userEmail} 
       onChange={e => setEmail(e.currentTarget.value)}/><br/>
 
     <button type="submit" 
